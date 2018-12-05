@@ -5,31 +5,17 @@ public class Sorts{
     for (int i = 0; i < ary.length-1; i++) {
       int old = ary[i];
       int small = ary[i];
-      //int index = i;
+      int index = i;
+      int oldindex = i;
       for (int n = i+1; n < ary.length; n++) { //Ignoring already sorted values, find next smallest
+        index++; //index of element checked increases
         if (ary[n] < small) {
           small = ary[n];
+          oldindex = index; //old index is the index of the smallest before it is move to the front
         }
-        
       }
-      ary[indexOf(small,ary)] = old;
+      ary[oldindex] = old;
       ary[i] = small;
-
     }
   }
-
-  //Find the index of the smallest value
-  public static int indexOf(int x, int [] ary) {
-    int index = 0;
-    for (int i = 0; ary[i] != x; i++) {
-      index++;
-    }
-    return index;
-  }
-
-public static void main(String[]args) {
-  int [] A = new int [] {5, 3, 6, 2, 7, 1 ,4};
-  selectionSort(A);
-  System.out.println(Arrays.toString(A));
-}
 }
