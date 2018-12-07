@@ -27,6 +27,7 @@ public class Sorts{
           int x = data[n];
           data[n] = data[n+1];
           data[n+1] = x;
+          System.out.println(Arrays.toString(data));
         }
       }
     }
