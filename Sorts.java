@@ -44,7 +44,13 @@ public class Sorts{
     if (data.length > 1) { //if length is 0 or 1, data remains the same
       for (int i = 0; i < data.length-1; i++) { //for the length of data
         int x = data[i+1]; //x is the number that needs to be sorted. Starts with one sorted already
-        for (int n = i+1; n > 0; n--) {
+        int index = i+1;
+        for (int n = i+1; n != 0 && data[n-1] > x; n--) {
+          data [n] = data[n-1];
+          index --;
+        }
+        data[index] = x;
+        /*for (int n = i+1; n > 0; n--) {
           if (n -1 == 0 && data[n-1] > x) { //if there is only one element left in "sorted" section and it is greater than x
             data[n] = data[n-1]; //element in index 1 shifts to right
             data[n-1] = x; //x becomes element at index 1
@@ -57,7 +63,7 @@ public class Sorts{
           else {
             data[n] = data[n-1]; //element shifts to right
           }
-        }
+        }*/
       }
     }
   }
