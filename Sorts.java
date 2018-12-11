@@ -41,11 +41,31 @@ public class Sorts{
 
   public static void insertionSort(int [] data) {
     if (data.length > 1) {
-      for (int i = 1; i < data.length-1; i++) {
-        for (int n = i+1; n < data.length; n++) {
+      for (int i = 0; i < data.length-1; i++) {
+        int x = data[i+1];
+        for (int n = i+1; n > 0; n--) {
+           if (n -1 == 0 && data[n-1] > x) {
+              data[n] = data[n-1];
+                 data[n-1] = x;
+              n=0;
+           }
 
+           else if (data[n-1] < x) {
+            data[n] = x;
+              n=0;
+          }
+          else {
+            data[n] = data[n-1];
+          }
         }
       }
     }
   }
+
+  public static void main(String[] args) {
+    int [] A = new int [] {5, 2, 3, 1, 0, 6};
+    insertionSort(A);
+    System.out.print(Arrays.toString(A));
+  }
+
 }
